@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Icarus 主题网站优化（bug记录） - 一见倾心</title>
+
+
+    <meta name="description" content="记录我的网站目标及优化之路，感谢以下大佬的创作与开发（不分先后）：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Icarus 主题网站优化（bug记录）">
+<meta property="og:url" content="https://bitcrush.top/posts/Icarus-record/index.html">
+<meta property="og:site_name" content="一见倾心">
+<meta property="og:description" content="记录我的网站目标及优化之路，感谢以下大佬的创作与开发（不分先后）：">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://bitcrush.top/images/display.jpg">
+<meta property="article:published_time" content="2020-03-13T07:27:31.000Z">
+<meta property="article:modified_time" content="2020-03-14T05:41:42.490Z">
+<meta property="article:author" content="AIMER">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="Word Embedding">
+<meta property="article:tag" content="CJ Sun">
+<meta property="article:tag" content="Caijun Sun">
+<meta property="article:tag" content="IOVI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bitcrush.top/images/display.jpg">
+
+
+
+
+
+<link rel="alternative" href="/atom.xml" title="Icarus 主题网站优化（bug记录）" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/fight.png" >
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.4.1/css/all.min.css">
+<!-- <link rel="stylesheet" href="/css/Ubuntu:400,600%7CSource+Code+Pro.css"> -->
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?530e262b33d8aad9a27d0c1ab9ed8ec9";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- <body class="is-2-column"> -->
+    <body class="is-3-column">
+
+
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="Icarus 主题网站优化（bug记录）" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+                <a class="navbar-item"
+                href="/links">Links</a>
+                
+                <a class="navbar-item"
+                href="/movies">Movies</a>
+                
+                <a class="navbar-item"
+                href="/books">Books</a>
+                
+                <a class="navbar-item"
+                href="/gallery">Gallery</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item" target="_blank" rel="noopener" title="Pan" href="https://pan.bitcrush.top">
+                        
+                    <i class="fa fa-cloud" aria-hidden="true"></i>
+                    
+                </a>
+
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                <a class="navbar-item" target="_blank" rel="noopener" title="Valine-Admin" href="https://admin.bitcrush.top/"><i class="fas fa-cog"></i></a>
+
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Visit my GitHub" href="https://github.com/Aimerence">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/display.jpg" alt="Icarus 主题网站优化（bug记录）">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+
+
+
+
+
+
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- PIN -->
+                
+                    <div class="level-item tag is-danger" style="background-color: #3273dc;">Pin</div>
+                    
+
+
+                <!-- <time class="level-item has-text-grey" datetime="2020-03-13T07:27:31.000Z">2020-03-13</time>
+                 -->
+
+                 <time class="level-item has-text-grey" datetime="2020-03-13T07:27:31.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-13</time>
+                 
+                 <!-- 
+                    <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-14T05:41:42.490Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-14</time>
+                     -->
+                    <time class="level-item has-text-grey" datetime="2020-03-14T05:41:42.490Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-14</time>    
+
+                
+                <div class="level-item">
+                    <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                </div>
+                
+
+                
+
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 minutes read (About 744 words)
+                </span>
+                
+
+                
+
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Icarus 主题网站优化（bug记录）
+            
+        </h1>
+        <div class="content">
+            <p><strong>记录我的网站目标及优化之路，感谢以下大佬的创作与开发（不分先后）：</strong></p>
+<a id="more"></a>
+
+<h2 id="Thanks-大佬"><a href="#Thanks-大佬" class="headerlink" title="Thanks 大佬"></a>Thanks 大佬</h2><ul>
+<li><p><a href="https://github.com/ppoffice" title="ppoffice">ppoffice</a></p>
+</li>
+<li><p><a href="https://raycoder.me" title="Ray&#39;s Blog">Ray’s Blog</a></p>
+</li>
+<li><p><a href="https://dp2px.com/" title="dp2px">dp2px</a></p>
+</li>
+<li><p><a href="https://removeif.github.io/" title="removeif">removeif</a></p>
+</li>
+<li><p><a href="https://www.jitwxs.cn/" title="jitwxs">jitwxs</a></p>
+</li>
+<li><p><a href="https://www.imaegoo.com/" title="imaegoo">imaegoo</a></p>
+</li>
+<li><p><a href="https://www.alphalxy.com/" title="alphalxy">alphalxy</a></p>
+</li>
+<li><p><a href="https://nave.work/"Evan"">Evan</a></p>
+</li>
+<li><p><a href="https://zazdream.com/">zazdream</a></p>
+</li>
+<li><p><a href="https://www.cxy35.com/">cxy35</a></p>
+</li>
+<li><p><a href="https://annewqx.top/">Anne Wu</a></p>
+</li>
+<li><p><a href="https://yafine-blog.cn/">yafine</a></p>
+</li>
+</ul>
+<h2 id="ToDo-计划"><a href="#ToDo-计划" class="headerlink" title="ToDo 计划"></a>ToDo 计划</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> <p>粒子时钟（加强版）</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>文章页 双栏布局 /减少不必要的部件</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>自动刷新md内容方便预览</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>底部备案、文章版权、永久链接格式</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>黑夜模式</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>主页添加bio(一句话)</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>图片居中/相册间隙</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>友链页布局修改（三栏）</p>
+</li>
+<li><input disabled="" type="checkbox"> <p>关于页面内容更新(加音乐)</p>
+</li>
+<li><input disabled="" type="checkbox"> <p>主页添加部件 最新评论</p>
+</li>
+<li><input disabled="" type="checkbox"> <p>主页添加部件 添加推荐文章</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>增加页面 豆瓣电影</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>增加页面 豆瓣书单</p>
+</li>
+<li><input disabled="" type="checkbox"> <p><del>增加电子书阅读页面(gitbook)</del></p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p><del>增加网易云音乐页面</del></p>
+</li>
+<li><input disabled="" type="checkbox"> <p>关于页面加入时间线</p>
+</li>
+<li><input disabled="" type="checkbox"> <p>归档页添加文章贡献概览</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p><del>置顶文章功能</del></p>
+</li>
+<li><input disabled="" type="checkbox"> <p><del>加密文章功能（鸡肋）</del></p>
+</li>
+<li><input disabled="" type="checkbox"> <p>文章列表评论数显示</p>
+</li>
+<li><input disabled="" type="checkbox"> <p><del>增加页面 碎碎念（个人吐槽、心情页）</del></p>
+</li>
+<li><input disabled="" type="checkbox"> <p><del>增加页面 留言墙（区）</del></p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>增加相册页（包括美图展示）</p>
+</li>
+<li><input disabled="" type="checkbox"> <p><del>添加网盘</del></p>
+</li>
+<li><input disabled="" type="checkbox"> <p>增加体系页（思维导图）</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>RSS订阅</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>增加个人导航页（工具、网站、影视等）</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>图像logo 更改 （适应黑夜模式）</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p><del>评论管理</del></p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>关注我改成公众号（公众号还未准备）**</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>网站运行时间</p>
+</li>
+<li><input disabled="" type="checkbox"> <p><del>pv/uv</del></p>
+</li>
+<li><input disabled="" type="checkbox"> <p><del>图片懒加载 （以及与相册的bug)</del></p>
+</li>
+</ul>
+<h2 id="Bug-修复"><a href="#Bug-修复" class="headerlink" title="Bug 修复"></a>Bug 修复</h2><ul>
+<li><input disabled="" type="checkbox"> <p>关注 Follow 弹出二维码在移动设备未在中间弹出</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>黑夜模式下 底部刷新变黑明显慢于其他部分</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>night.js初次加载报Cannot read property ‘toString’ of null的问题</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>黑夜下valine 评论 代码格式形式白</p>
+</li>
+</ul>
+<h2 id="Display-布局"><a href="#Display-布局" class="headerlink" title="Display 布局"></a>Display 布局</h2><ul>
+<li>三栏展示：Home 、Archives、Categories、Tags、Movies</li>
+<li>双栏展示： Post、</li>
+<li>单栏展示： About 、Gallery、Links</li>
+<li><del>纯静态/未渲染：Tricks :  navs(先不弄了)</del></li>
+</ul>
+<h2 id="Record-记录"><a href="#Record-记录" class="headerlink" title="Record 记录"></a>Record 记录</h2><ul>
+<li><p><code>page.layout</code> 判断  <code>type</code></p>
+</li>
+<li><p>将主题所用的字体放到本地，弃用 <code>loli</code> CDN</p>
+</li>
+<li><p>在黑夜模式作者imaegoo的帮助下解决 night.js 报错问题</p>
+</li>
+<li><p>将相册图片放到了又拍云cdn 上了 图片资源放在又拍云 </p>
+</li>
+</ul>
+<h2 id="Plan-期望"><a href="#Plan-期望" class="headerlink" title="Plan 期望"></a>Plan 期望</h2><ul>
+<li><input disabled="" type="checkbox"> <p>音乐部件</p>
+</li>
+<li><input disabled="" type="checkbox"> <p>除文章页外不加载不必要插件</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>友链页整改</p>
+</li>
+</ul>
+<h2 id="Profile-文档"><a href="#Profile-文档" class="headerlink" title="Profile 文档"></a>Profile 文档</h2><ul>
+<li><p><a href="https://hexo.io/zh-cn/docs/variables">hexo官方文档里对于变量的说明</a></p>
+</li>
+<li><p><a href="https://hexo.io/zh-cn/docs/helpers">hexo官方文档里对于辅助函数的说明</a></p>
+</li>
+<li><p><a href="https://ejs.bootcss.com/">ejs嵌入开发各个标签的含义</a></p>
+</li>
+<li><p><a href="https://bulma.zcopy.site/documentation/">bulma框架中文文档</a></p>
+</li>
+</ul>
+
+        </div>
+        
+        
+            <ul class="post-copyright">
+                <li><strong>本文标题：</strong><a href="https://bitcrush.top/posts/Icarus-record/">Icarus 主题网站优化（bug记录）</a></li>
+                <li><strong>本文作者：</strong><a href="https://bitcrush.top">AIMER</a></li>
+                <li><strong>本文链接：</strong><a href="https://bitcrush.top/posts/Icarus-record/">https://bitcrush.top/posts/Icarus-record/</a></li>
+                <li><strong>发布时间：</strong>2020-03-13</li>
+                <li><strong>最后修改：</strong>2020-03-14</li>
+                <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                </li>
+            </ul>
+            
+
+        
+
+            <hr style="height:1px;margin:1rem 0"/>
+
+
+
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+
+                    <a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>,&nbsp;<a class="has-link-grey -link" href="/tags/icarus/" rel="tag">icarus</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/MySQL-Study/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">MySQL 学习笔记</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/JavaSE08/">
+                <span class="level-item">Java SE 基础系列笔记 (8)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+  
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        avatar: 'mp',
+        notify: true,
+        verify: true,
+        app_id: 'lv34ST3PnTwo20Jl0zckEO86-gzGzoHsz',
+        app_key: '4GfW1p1R2Gwd3KseiWtpwbtV',
+        placeholder: '给我的文章加点评论吧~~'
+    });
+</script>
+
+    </div>
+</div>
+
+</div>
+                
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-right ">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card widget" >
+            <div class="menu">
+                <h3 class="menu-label">
+                    Catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Thanks-大佬">
+        <span class="has-mr-6">1</span>
+        <span>Thanks 大佬</span>
+        </a></li><li>
+        <a class="is-flex" href="#ToDo-计划">
+        <span class="has-mr-6">2</span>
+        <span>ToDo 计划</span>
+        </a></li><li>
+        <a class="is-flex" href="#Bug-修复">
+        <span class="has-mr-6">3</span>
+        <span>Bug 修复</span>
+        </a></li><li>
+        <a class="is-flex" href="#Display-布局">
+        <span class="has-mr-6">4</span>
+        <span>Display 布局</span>
+        </a></li><li>
+        <a class="is-flex" href="#Record-记录">
+        <span class="has-mr-6">5</span>
+        <span>Record 记录</span>
+        </a></li><li>
+        <a class="is-flex" href="#Plan-期望">
+        <span class="has-mr-6">6</span>
+        <span>Plan 期望</span>
+        </a></li><li>
+        <a class="is-flex" href="#Profile-文档">
+        <span class="has-mr-6">7</span>
+        <span>Profile 文档</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Blog/">
+            <span class="level-start">
+                <span class="level-item">Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Java/">
+            <span class="level-start">
+                <span class="level-item">Java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Movie/">
+            <span class="level-start">
+                <span class="level-item">Movie</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/MySQL/">
+            <span class="level-start">
+                <span class="level-item">MySQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Network/">
+            <span class="level-start">
+                <span class="level-item">Network</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/OPL/">
+            <span class="level-start">
+                <span class="level-item">OPL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Tools/">
+            <span class="level-start">
+                <span class="level-item">Tools</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/MySQL-Study/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="MySQL 学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-23T14:48:58.000Z">2020-03-23</time></div>
+                    <a href="/posts/MySQL-Study/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MySQL 学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/MySQL/">MySQL</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/Icarus-record/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/display.jpg" alt="Icarus 主题网站优化（bug记录）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-13T07:27:31.000Z">2020-03-13</time></div>
+                    <a href="/posts/Icarus-record/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Icarus 主题网站优化（bug记录）</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/JavaSE08/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Java SE 基础系列笔记 (8)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-12T10:07:14.000Z">2020-03-12</time></div>
+                    <a href="/posts/JavaSE08/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Java SE 基础系列笔记 (8)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/JavaSE07/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Java SE 基础系列笔记 (7)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T13:19:02.000Z">2020-03-09</time></div>
+                    <a href="/posts/JavaSE07/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Java SE 基础系列笔记 (7)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/computer-network-basic/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="计算机网络基础">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T02:17:12.000Z">2020-03-09</time></div>
+                    <a href="/posts/computer-network-basic/" class="title has-link-black-ter is-size-6 has-text-weight-normal">计算机网络基础</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Network/">Network</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/api/">
+                        <span class="tag">api</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/basic/">
+                        <span class="tag">basic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/collection/">
+                        <span class="tag">collection</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cplex/">
+                        <span class="tag">cplex</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/icarus/">
+                        <span class="tag">icarus</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/inherit/">
+                        <span class="tag">inherit</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/inner/">
+                        <span class="tag">inner</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/interface/">
+                        <span class="tag">interface</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/network/">
+                        <span class="tag">network</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/polymorphism/">
+                        <span class="tag">polymorphism</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/review/">
+                        <span class="tag">review</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/software/">
+                        <span class="tag">software</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo  has-mb-6" href="/">
+
+
+
+                
+
+                <p class="is-size-7">
+                    
+                &copy; 2020 AIMER&nbsp;
+                <a  href="http://beian.miit.gov.cn/" target="_blank">苏ICP备20007028号-1</a>&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                        <a href="https://www.upyun.com/"   target="_blank"  style="border:0">
+                            <img src="/images/ypy.png" alt="又拍云提供服务"   style="width: 70px; display: inline; vertical-align: middle;">
+                          </a>
+                         <br>
+                          <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+                          <script>
+                              var now = new Date(); 
+                              function createtime() { 
+                                  var grt= new Date("1/2/2019 08:00:00");// 此处修改你的建站时间或者网站上线时间 
+                                  now.setTime(now.getTime()+250); 
+                                  days = (now - grt) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                                  hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                                  if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                                  mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                                  seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                                  snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                                  document.getElementById("timeDate").innerHTML = "This site has been running safely for "+dnum+" 天 "; 
+                                  document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 "; 
+                              } 
+                              setInterval("createtime()",250);
+                          </script>
+
+
+                        
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                            <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://bitcrush.top',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+
+
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

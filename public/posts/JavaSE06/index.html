@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Java SE 基础系列笔记 (6) - 一见倾心</title>
+
+
+    <meta name="description" content="常用 JAVA API(一) 学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java SE 基础系列笔记 (6)">
+<meta property="og:url" content="https://bitcrush.top/posts/JavaSE06/index.html">
+<meta property="og:site_name" content="一见倾心">
+<meta property="og:description" content="常用 JAVA API(一) 学习">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://bitcrush.top/images/og_image.png">
+<meta property="article:published_time" content="2020-02-27T13:07:02.000Z">
+<meta property="article:modified_time" content="2020-03-06T13:39:24.950Z">
+<meta property="article:author" content="AIMER">
+<meta property="article:tag" content="api">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bitcrush.top/images/og_image.png">
+
+
+
+
+
+<link rel="alternative" href="/atom.xml" title="Java SE 基础系列笔记 (6)" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/fight.png" >
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.4.1/css/all.min.css">
+<!-- <link rel="stylesheet" href="/css/Ubuntu:400,600%7CSource+Code+Pro.css"> -->
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?530e262b33d8aad9a27d0c1ab9ed8ec9";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- <body class="is-2-column"> -->
+    <body class="is-3-column">
+
+
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="Java SE 基础系列笔记 (6)" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+                <a class="navbar-item"
+                href="/links">Links</a>
+                
+                <a class="navbar-item"
+                href="/movies">Movies</a>
+                
+                <a class="navbar-item"
+                href="/books">Books</a>
+                
+                <a class="navbar-item"
+                href="/gallery">Gallery</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item" target="_blank" rel="noopener" title="Pan" href="https://pan.bitcrush.top">
+                        
+                    <i class="fa fa-cloud" aria-hidden="true"></i>
+                    
+                </a>
+
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                <a class="navbar-item" target="_blank" rel="noopener" title="Valine-Admin" href="https://admin.bitcrush.top/"><i class="fas fa-cog"></i></a>
+
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Visit my GitHub" href="https://github.com/Aimerence">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+
+
+
+
+
+
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- PIN -->
+                
+
+
+                <!-- <time class="level-item has-text-grey" datetime="2020-02-27T13:07:02.000Z">2020-02-27</time>
+                 -->
+
+                 <time class="level-item has-text-grey" datetime="2020-02-27T13:07:02.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-27</time>
+                 
+                 <!-- 
+                    <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-06T13:39:24.950Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-06</time>
+                     -->
+                    <time class="level-item has-text-grey" datetime="2020-03-06T13:39:24.950Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-06</time>    
+
+                
+                <div class="level-item">
+                    <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
+                </div>
+                
+
+                
+
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10 minutes read (About 1464 words)
+                </span>
+                
+
+                
+
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Java SE 基础系列笔记 (6)
+            
+        </h1>
+        <div class="content">
+            <p>常用 JAVA API(一) 学习</p>
+<a id="more"></a>
+
+<h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><p>exp:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demo09;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demoScn</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> num = sc.nextInt();</span><br><span class="line">        String str =  sc.next();</span><br><span class="line">        System.out.println(num+str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h2><p>exp:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demo09;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demoNum</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        methodParam(<span class="keyword">new</span> Scanner(System.in));</span><br><span class="line">        </span><br><span class="line">        Scanner sc = methodReturn();</span><br><span class="line">        <span class="keyword">int</span> num = sc.nextInt();</span><br><span class="line">        System.out.println(<span class="string">"hhajfi"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 匿名对象作为方法参数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">methodParam</span><span class="params">(Scanner sc)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = sc.nextInt();</span><br><span class="line">        System.out.println(num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 匿名对象作为返回值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  Scanner <span class="title">methodReturn</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Random"><a href="#Random" class="headerlink" title="Random"></a>Random</h2><p>exp:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demoRan</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Random r = <span class="keyword">new</span> Random();</span><br><span class="line">        <span class="keyword">int</span> num  = r.nextInt();</span><br><span class="line">        System.out.println(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：使用 <code>nextInt(n)</code> 为左闭右开区间。</strong></p>
+<h3 id="猜数字小游戏"><a href="#猜数字小游戏" class="headerlink" title="猜数字小游戏"></a>猜数字小游戏</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demo10;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">//猜数字游戏</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demoGame</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Random r = <span class="keyword">new</span> Random();</span><br><span class="line">        <span class="keyword">int</span> randomNum = r.nextInt(<span class="number">100</span>) + <span class="number">1</span>;<span class="comment">//[1,100]</span></span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"请输入："</span>);</span><br><span class="line">            <span class="keyword">int</span> guessNum = sc.nextInt();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (guessNum &lt; randomNum) &#123;</span><br><span class="line">                System.out.println(<span class="string">"小了"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (guessNum &gt; randomNum) &#123;</span><br><span class="line">                System.out.println(<span class="string">"大了"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">"中了"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"Over!!!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h2><p><strong><code>ArrayList(集合)</code> 的长度是可以随意变化的。</strong></p>
+<p><strong><code>ArrayList&lt;E&gt;</code>  其中 E 为泛型，只能是引用类型。</strong></p>
+<p>exp:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demoARRM</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"李白"</span>);</span><br><span class="line">        list.add(<span class="string">"张飞"</span>);</span><br><span class="line">        list.add(<span class="string">"伽罗"</span>);</span><br><span class="line">        list.add(<span class="string">"干将"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(list);</span><br><span class="line">        System.out.println(list.get(<span class="number">1</span>));</span><br><span class="line">        String whoRemoved = list.remove(<span class="number">2</span>);</span><br><span class="line">        System.out.println(whoRemoved);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> size = list.size(); <span class="comment">//获取长度</span></span><br><span class="line">        System.out.println(size);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListeach</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"A"</span>);</span><br><span class="line">        list.add(<span class="string">"B"</span>);</span><br><span class="line">        list.add(<span class="string">"C"</span>);</span><br><span class="line">        list.add(<span class="string">"D"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>存储基本类型：使用包装类（大写）</strong></p>
+<p><strong>注意：</strong>  <code>Integer</code>  <code>character</code></p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p><strong>字符串是常量,效果上相当于 <code>char[]</code>字符数组，但是底层原理是<code>byte[]</code>字节数组。</strong></p>
+<h3 id="三种构造方法以及直接创建"><a href="#三种构造方法以及直接创建" class="headerlink" title="三种构造方法以及直接创建"></a>三种构造方法以及直接创建</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(<span class="keyword">char</span>[] array)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(<span class="keyword">byte</span>[] array)</span></span></span><br><span class="line"><span class="function">String str1 </span>= <span class="string">"hello"</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>exp:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demo14字符串;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoStr</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str1 = <span class="keyword">new</span> String();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span>[] charArray = &#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>&#125;;</span><br><span class="line">        String str2 = <span class="keyword">new</span> String(charArray);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">byte</span>[] byteArray = &#123;<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>&#125;;</span><br><span class="line">        String str3 = <span class="keyword">new</span> String(byteArray);</span><br><span class="line"></span><br><span class="line">        String str4 = <span class="string">"hello"</span>;</span><br><span class="line"></span><br><span class="line">        System.out.println(str1 + str2 + str3 + str4);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意：</strong></p>
+<ul>
+<li><p><strong>使用 <code>==</code>比较的是对象的地址值，要用 <code>a.equals(b)</code> 比较字符串内容。</strong></p>
+</li>
+<li><p><strong>最好用 <code>常量.equals(变量)</code>，不然会报空指针异常错误</strong></p>
+</li>
+<li><p><strong>使用 <code>equalsIgnoreCase</code> 忽略大小写。</strong></p>
+</li>
+</ul>
+<h3 id="String-当中与获取相关的常用方法"><a href="#String-当中与获取相关的常用方法" class="headerlink" title="String  当中与获取相关的常用方法"></a><strong><code>String</code>  当中与获取相关的常用方法</strong></h3><table>
+<thead>
+<tr>
+<th align="left">用法</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">public int length()</td>
+<td align="center">获取字符串当中含有的字符个数，拿到字符串长度</td>
+</tr>
+<tr>
+<td align="left">public String concat(String str)</td>
+<td align="center">将当前字符串和参数字符串拼接成为返回值新的字符串</td>
+</tr>
+<tr>
+<td align="left">public charAt(int index)</td>
+<td align="center">获取指定索引位置的单个字符</td>
+</tr>
+<tr>
+<td align="left">public int indexOf(string str)</td>
+<td align="center">查找参数字符串在本字符串当中首次出现的索引位置，无返回-1值</td>
+</tr>
+</tbody></table>
+<h3 id="字符串截取"><a href="#字符串截取" class="headerlink" title="字符串截取"></a>字符串截取</h3><table>
+<thead>
+<tr>
+<th>截取参数</th>
+<th align="center">效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public String substring(int begin,int end)</td>
+<td align="center">截取从begin 开始，一直到end结束，中间的字符串</td>
+</tr>
+<tr>
+<td>public String substring(int index)</td>
+<td align="center">截取从参数位置一直到字符串末尾，返回新字符串</td>
+</tr>
+</tbody></table>
+<h3 id="字符串转换"><a href="#字符串转换" class="headerlink" title="字符串转换"></a>字符串转换</h3><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">public char[] toCharArray()</td>
+<td align="center">将当前字符串拆分成为字符数组作为返回值</td>
+</tr>
+<tr>
+<td align="center">public byte[] getBytes()</td>
+<td align="center">获得当前字符串底层的字节数组</td>
+</tr>
+<tr>
+<td align="center">public String replace(CharSequence oldString,CharSequence newString)</td>
+<td align="center">将所有出现的老字符串替换成为新的字符串，返回替换之后的结果新字符串</td>
+</tr>
+</tbody></table>
+<h3 id="字符串分割"><a href="#字符串分割" class="headerlink" title="字符串分割"></a>字符串分割</h3><p><strong>按照参数规则将字符串分成若干部分：</strong></p>
+<p><code>public String split(String regex)</code></p>
+<p><strong>注意事项： regex 为正则，要按原文句点 <code>.</code> 进行划分，必须写  <code>\\.</code> 。</strong></p>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p><strong>无论是成员变量还是成员方法，如果有了 <code>static</code>, 推荐使用类名称进行调用。</strong></p>
+<p><strong>注意： 静态不能访问非静态</strong></p>
+<p>原因：因为在内存当中是先有静态内容，后有非静态内容。</p>
+<p><strong>注意： 静态方法中不能使用 <code>this</code></strong></p>
+<p>原因： <code>this</code> 代表当前对象，通过谁调用的方法，谁就是当前对象。</p>
+<h3 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a>静态代码块</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类名称</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>特点：当第一次用到本类时，静态代码执行唯一的一次，比构造方法先执行。</strong></p>
+<h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public static String toString(数组)</td>
+<td>将参数数组变成字符串</td>
+</tr>
+<tr>
+<td>public static void sort(数组)</td>
+<td>按照生序对数组的元素进行排序</td>
+</tr>
+</tbody></table>
+<p><strong>备注：</strong></p>
+<ul>
+<li><p>如果是数值，sort 默认按照升序从小到大。</p>
+</li>
+<li><p>如果是字符串，sort 默认按照字母升序。</p>
+</li>
+<li><p>如果是自定义的类型，那么这个自定义的类需要有Comparable 或者Comparator 接口的支持（今后学习）</p>
+</li>
+</ul>
+<h2 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h2><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">public static double abs(double num)</td>
+<td>获取绝对值</td>
+</tr>
+<tr>
+<td align="left">public static double ceil(double num)</td>
+<td>向上取整</td>
+</tr>
+<tr>
+<td align="left">public static double floor(double num)</td>
+<td>向下取整</td>
+</tr>
+<tr>
+<td align="left">public static double round(double num)</td>
+<td>四舍五入</td>
+</tr>
+</tbody></table>
+<p><strong>备注：</strong></p>
+<p>Math.PI 代表近似圆周率 （double)</p>
+<h3 id="Math-小练习"><a href="#Math-小练习" class="headerlink" title="Math 小练习"></a>Math 小练习</h3><p><strong>要求：</strong></p>
+<blockquote>
+<p>计算 -10.8 到 5.9 之间，绝对值大于 6 或者小于 2.1 的整数有多少个？</p>
+</blockquote>
+<p><strong>分析：</strong></p>
+<ol>
+<li><p>既然已经确定了范围，用 for 循环。</p>
+</li>
+<li><p>起点位置 -10.8 应该转换成为 -10，两种方法：</p>
+<p>2.1 可以使用 Math.ceil 方法，向上（向正方向）取整。</p>
+<p>2.2 强制转换为 int ,自动舍弃所有小数位。</p>
+</li>
+<li><p>每一个数字都是整数，所以步进表达式应该是 num ++,这样每次都是 +1的。</p>
+</li>
+<li><p>如何拿到绝对值，用 Math.abs 方法。</p>
+</li>
+<li><p>一旦发现了应该数字，需要让计数器 ++ 进行统计。</p>
+</li>
+</ol>
+<p><strong>备注：</strong></p>
+<p>如果使用 Math.ceil 方法， -10.8 可以变成 -10.0 . 注意 double 也是可以进行 ++ 的。</p>
+<p><strong>exp :</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoMath</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">double</span> min = -<span class="number">10.8</span>;</span><br><span class="line">        <span class="keyword">double</span> max = <span class="number">5.9</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = (<span class="keyword">int</span>) min;i&lt;max;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> abs = Math.abs(i);</span><br><span class="line">            <span class="keyword">if</span>(abs&gt; <span class="number">6</span>||abs&lt;<span class="number">2.1</span>)&#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"All:"</span>+count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        
+            <ul class="post-copyright">
+                <li><strong>本文标题：</strong><a href="https://bitcrush.top/posts/JavaSE06/">Java SE 基础系列笔记 (6)</a></li>
+                <li><strong>本文作者：</strong><a href="https://bitcrush.top">AIMER</a></li>
+                <li><strong>本文链接：</strong><a href="https://bitcrush.top/posts/JavaSE06/">https://bitcrush.top/posts/JavaSE06/</a></li>
+                <li><strong>发布时间：</strong>2020-02-27</li>
+                <li><strong>最后修改：</strong>2020-03-06</li>
+                <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                </li>
+            </ul>
+            
+
+        
+
+            <hr style="height:1px;margin:1rem 0"/>
+
+
+
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+
+                    <a class="has-link-grey -link" href="/tags/api/" rel="tag">api</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/pancreas/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">《念念手记》观后感</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/Cplex_OPL-program/">
+                <span class="level-item">Cplex 编程方法(OPL)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-right ">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card widget" >
+            <div class="menu">
+                <h3 class="menu-label">
+                    Catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Scanner">
+        <span class="has-mr-6">1</span>
+        <span>Scanner</span>
+        </a></li><li>
+        <a class="is-flex" href="#匿名对象">
+        <span class="has-mr-6">2</span>
+        <span>匿名对象</span>
+        </a></li><li>
+        <a class="is-flex" href="#Random">
+        <span class="has-mr-6">3</span>
+        <span>Random</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#猜数字小游戏">
+        <span class="has-mr-6">3.1</span>
+        <span>猜数字小游戏</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#ArrayList">
+        <span class="has-mr-6">4</span>
+        <span>ArrayList</span>
+        </a></li><li>
+        <a class="is-flex" href="#String">
+        <span class="has-mr-6">5</span>
+        <span>String</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#三种构造方法以及直接创建">
+        <span class="has-mr-6">5.1</span>
+        <span>三种构造方法以及直接创建</span>
+        </a></li><li>
+        <a class="is-flex" href="#String-当中与获取相关的常用方法">
+        <span class="has-mr-6">5.2</span>
+        <span>String  当中与获取相关的常用方法</span>
+        </a></li><li>
+        <a class="is-flex" href="#字符串截取">
+        <span class="has-mr-6">5.3</span>
+        <span>字符串截取</span>
+        </a></li><li>
+        <a class="is-flex" href="#字符串转换">
+        <span class="has-mr-6">5.4</span>
+        <span>字符串转换</span>
+        </a></li><li>
+        <a class="is-flex" href="#字符串分割">
+        <span class="has-mr-6">5.5</span>
+        <span>字符串分割</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#static">
+        <span class="has-mr-6">6</span>
+        <span>static</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#静态代码块">
+        <span class="has-mr-6">6.1</span>
+        <span>静态代码块</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Arrays">
+        <span class="has-mr-6">7</span>
+        <span>Arrays</span>
+        </a></li><li>
+        <a class="is-flex" href="#Math">
+        <span class="has-mr-6">8</span>
+        <span>Math</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Math-小练习">
+        <span class="has-mr-6">8.1</span>
+        <span>Math 小练习</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Blog/">
+            <span class="level-start">
+                <span class="level-item">Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Java/">
+            <span class="level-start">
+                <span class="level-item">Java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Movie/">
+            <span class="level-start">
+                <span class="level-item">Movie</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/MySQL/">
+            <span class="level-start">
+                <span class="level-item">MySQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Network/">
+            <span class="level-start">
+                <span class="level-item">Network</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/OPL/">
+            <span class="level-start">
+                <span class="level-item">OPL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Tools/">
+            <span class="level-start">
+                <span class="level-item">Tools</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/MySQL-Study/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="MySQL 学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-23T14:48:58.000Z">2020-03-23</time></div>
+                    <a href="/posts/MySQL-Study/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MySQL 学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/MySQL/">MySQL</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/Icarus-record/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/display.jpg" alt="Icarus 主题网站优化（bug记录）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-13T07:27:31.000Z">2020-03-13</time></div>
+                    <a href="/posts/Icarus-record/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Icarus 主题网站优化（bug记录）</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/JavaSE08/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Java SE 基础系列笔记 (8)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-12T10:07:14.000Z">2020-03-12</time></div>
+                    <a href="/posts/JavaSE08/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Java SE 基础系列笔记 (8)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/JavaSE07/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Java SE 基础系列笔记 (7)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T13:19:02.000Z">2020-03-09</time></div>
+                    <a href="/posts/JavaSE07/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Java SE 基础系列笔记 (7)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/computer-network-basic/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="计算机网络基础">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T02:17:12.000Z">2020-03-09</time></div>
+                    <a href="/posts/computer-network-basic/" class="title has-link-black-ter is-size-6 has-text-weight-normal">计算机网络基础</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Network/">Network</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/api/">
+                        <span class="tag">api</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/basic/">
+                        <span class="tag">basic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/collection/">
+                        <span class="tag">collection</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cplex/">
+                        <span class="tag">cplex</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/icarus/">
+                        <span class="tag">icarus</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/inherit/">
+                        <span class="tag">inherit</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/inner/">
+                        <span class="tag">inner</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/interface/">
+                        <span class="tag">interface</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/network/">
+                        <span class="tag">network</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/polymorphism/">
+                        <span class="tag">polymorphism</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/review/">
+                        <span class="tag">review</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/software/">
+                        <span class="tag">software</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo  has-mb-6" href="/">
+
+
+
+                
+
+                <p class="is-size-7">
+                    
+                &copy; 2020 AIMER&nbsp;
+                <a  href="http://beian.miit.gov.cn/" target="_blank">苏ICP备20007028号-1</a>&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                        <a href="https://www.upyun.com/"   target="_blank"  style="border:0">
+                            <img src="/images/ypy.png" alt="又拍云提供服务"   style="width: 70px; display: inline; vertical-align: middle;">
+                          </a>
+                         <br>
+                          <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+                          <script>
+                              var now = new Date(); 
+                              function createtime() { 
+                                  var grt= new Date("1/2/2019 08:00:00");// 此处修改你的建站时间或者网站上线时间 
+                                  now.setTime(now.getTime()+250); 
+                                  days = (now - grt) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                                  hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                                  if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                                  mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                                  seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                                  snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                                  document.getElementById("timeDate").innerHTML = "This site has been running safely for "+dnum+" 天 "; 
+                                  document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 "; 
+                              } 
+                              setInterval("createtime()",250);
+                          </script>
+
+
+                        
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                            <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://bitcrush.top',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+
+
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
